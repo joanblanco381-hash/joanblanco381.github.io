@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Joan Sebastian Blanco Ruiz</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES DE COLOR (Verde Claro) --- */
+        :root {
+            --bg-color: #f4fbf7;
+            --card-bg: #ffffff;
+            --primary-green: #2e7d32;
+            --primary-light: #e8f5e9;
+            --accent-green: #81c784;
+            --text-dark: #2c3e50;
+            --text-muted: #546e7a;
+            --border-color: #c8e6c9;
+            --shadow: 0 10px 25px rgba(46, 125, 50, 0.08);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- ENCABEZADO / HERO --- */
+        header {
+            background: linear-gradient(135deg, #a5d6a7 0%, #66bb6a 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-btn {
+            background-color: #ffffff;
+            color: var(--primary-green);
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIONES Y TARJETAS --- */
+        section {
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .section-title {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 8px;
+        }
+
+        /* --- SOBRE MÍ / PERFIL --- */
+        .profile-text {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        /* --- HABILIDADES TÉCNICAS Y COMPETENCIAS --- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skills-list, .competencies-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge-skill {
+            background-color: var(--primary-light);
+            color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-comp {
+            background-color: #f0fdf4;
+            color: #166534;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* --- FORMACIÓN Y EXPERIENCIA --- */
+        .timeline-item {
+            border-left: 3px solid var(--accent-green);
+            padding-left: 20px;
+            margin-left: 10px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            position: absolute;
+            left: -7.5px;
+            top: 6px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .timeline-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            background-color: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="container">
+            <h1>Joan Sebastian Blanco Ruiz</h1>
+            <p>Desarrollador Junior en Formación</p>
+            <div class="contact-links">
+                <a href="https://github.com" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="contact-btn"><i class="fas fa-globe"></i> Idioma: Inglés A2</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- PERFIL -->
+        <section>
+            <div class="card">
+                <h2 class="section-title"><i class="fas fa-user-code"></i> Perfil Profesional</h2>
+                <p class="profile-text">
+                    Estudiante de desarrollo de software junior en Campuslands. Paso gran parte de mi tiempo escribiendo código en Python. Me gusta enfrentarme a problemas de lógica y encontrar la forma más limpia de resolverlos, cuidando siempre que el código sea ordenado y no se rompa (manejo de errores). Me muevo bien usando Git y GitHub para organizar mis proyectos y siempre estoy buscando algo nuevo que aprender para mejorar mis habilidades en el backend.
+                </p>
+            </div>
+        </section>
+
+        <!-- HABILIDADES Y COMPETENCIAS (GRID) -->
+        <div class="grid-layout">
+            
+            <!-- HABILIDADES TÉCNICAS -->
+            <section>
+                <div class="card" style="height: 100%;">
+                    <h2 class="section-title"><i class="fas fa-laptop-code"></i> Habilidades Técnicas</h2>
+                    <div class="skills-list">
+                        <div class="badge-skill"><i class="fab fa-python"></i> Python</div>
+                        <div class="badge-skill"><i class="fab fa-git-alt"></i> Git</div>
+                        <div class="badge-skill"><i class="fab fa-github"></i> GitHub</div>
+                        <div class="badge-skill"><i class="fas fa-terminal"></i> PSeInt</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPETENCIAS -->
+            <section>
+                <div class="card" style="height: 100%;">
+                    <h2 class="section-title"><i class="fas fa-chart-line"></i> Competencias</h2>
+                    <div class="competencies-list">
+                        <span class="badge-comp">Liderazgo</span>
+                        <span class="badge-comp">Paciencia</span>
+                        <span class="badge-comp">Creatividad</span>
+                        <span class="badge-comp">Proactividad</span>
+                        <span class="badge-comp">Empatía</span>
+                        <span class="badge-comp">Comunicación</span>
+                        <span class="badge-comp">Disciplina</span>
+                        <span class="badge-comp">Adaptabilidad</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- FORMACIÓN Y EXPERIENCIA -->
+        <div class="grid-layout">
+
+            <!-- FORMACIÓN -->
+            <section>
+                <div class="card" style="height: 100%;">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formación</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-title">Técnico Laboral en Desarrollo de Software</div>
+                        <div class="timeline-subtitle">Campuslands</div>
+                        <span class="timeline-date">Actualidad</span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-title">Bachiller</div>
+                        <div class="timeline-subtitle">Instituto Adventista de Cúcuta</div>
+                        <span class="timeline-date">2024</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCIA -->
+            <section>
+                <div class="card" style="height: 100%;">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiencia</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-title">Desarrollo Web y Estructuración de Datos</div>
+                        <p class="profile-text" style="font-size: 0.9rem; margin-top: 5px;">
+                            Implementación de una estructura limpia y semántica, organizando un catálogo real de veinte productos con navegación fluida.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 Joan Sebastian Blanco Ruiz — Creado para GitHub Pages</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
